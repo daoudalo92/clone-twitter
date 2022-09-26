@@ -13,7 +13,6 @@ class TweetController extends Controller
         $tweets = Tweet::with('user')->get();
 
         return Inertia::render('Tweets/Index',[
-            'tweets' => $tweets
-        ]);
+            'tweets' => $tweets]);
     }
 }
