@@ -64,4 +64,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tweet::class)->orderBy('created_at', 'DESC');
     }
+
+    public function followings()
+    {
+        return $this->belongsToMany(
+            user::class,
+            'followings',
+            'follower_id',
+            'following_id'
+        );
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(
+            user::class,
+            'followings',
+            'following_id',
+            'follower_id'
+        );
+    }
 }
