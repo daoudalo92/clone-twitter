@@ -77,14 +77,14 @@ class TweetController extends Controller
 
     public function unfollows(User $user)
     {
-        //Auth::user()->followings()->detach($user);
+        Auth::user()->followings()->detach($user);
 
         return redirect()->back();
     }
 
     public function follows(User $user)
     {
-        //Auth::user()->followings()->attach($user);
+        Auth::user()->followings()->attach($user);
 
         return redirect()->back();
     }
